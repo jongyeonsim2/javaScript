@@ -1,0 +1,169 @@
+1. javascript 수정 진행
+   main 진행
+   - 교재 기준으로 진도
+   - java 마무리
+
+
+   그래도, 시간이 남는다면,
+     javascript 로 mvc 애플리케이션 작성.
+     => vue.js 변환
+
+   javascript 의 수업 시간이 없다면,
+   vue.js 수업에서 javascript 로 mvc 애플리케이션 작성.
+
+     vue.js ( mvvm )
+   - vue.js - framework
+     현재 교재는 완전 프로젝트용.
+
+2. 표기법
+  2.1 dash-case(kebab-dase)
+      html, css 
+      ex. the-quick-brown
+  2.2 snake_case
+      html, css
+      ex. the_quick_brown
+  2.3 camelCase
+      js
+      ex. theQuickBrown
+  2.4 PascalCase
+      js
+      ex. theQuickBrown
+
+3. 변수 선언
+   let 변수명   // 변수 선언
+   const 변수명 // 상수 선언
+
+   var 변수명   // 변수 선언 => 권장하지 않음.
+
+4. 자료형
+   String
+   Number 
+   Boolean
+   Undifined
+   Null
+   Object
+   Array
+
+
+5. 익명 함수
+   - 변수에 할당해서 사용하는 경우( 재사용 의미가 있음 )
+      let sum = function(a, b) {
+        return a + b;
+      }
+
+      sum(10, 20);
+
+
+   - 즉시 실행한는 경우( 한 번만 실행, 재사용 의미가 없음 )
+     sum (10, 20); // 보통의 함수 사용 방법.
+     sum 자리에 함수를 구현해버리면 됨.
+
+      ( function(a, b) {
+        return a + b;
+      } ) (10, 20);
+
+6. 화살표 함수
+   2015 에크마스크립트부터 사용 가능.
+   " => " 를 함수 구현시 작성.
+
+   기본적인 형태는 아래와 같음.
+   매개 변수 => 함수 내용
+
+   6.1 매개변수가 없을 때
+     6.1.1 
+          - 화살표 함수로 변경 전
+            let hi = function() {
+              return "Hello";
+            }
+
+            hi(); // 매개변수가 없는 함수 호출
+
+          - 화살표 함수로 변경 후
+            "매개 변수 => 함수 내용" 의 형대로 변경
+             
+             function(a) => () // 매개변수 부분
+
+             {
+              return "Hello"; => a+b //함수 내용
+              return a+b;
+            }
+
+            () => a + b;       // "매개 변수 => 함수 내용" 의 형대
+
+
+            let hi = () => a + b;  // 변수에 함수를 할당.
+
+
+            hi();     // 함수 호출
+   6.2 매개변수가 하나일 때
+        let hi = function(user) {
+          console.log(user);
+        }
+
+        "매개 변수 => 함수 내용" 의 형태로 변경
+
+        function(user) => (user) => user //매개 변수 형태로 변경
+
+        {
+          console.log(user);  => console.log(user); // 함수 내용
+        }
+
+        user => console.log(user);
+
+        let hi = user => console.log(user);  // 최종 화살표 함수
+
+
+
+   6.3 매개변수가 두 개일 때
+        let sum = function(a, b) {
+          return a + b;
+        }
+
+        function(a, b) => (a, b)  // 매개 변수 형태
+
+        {
+          return a + b;  => a + b  // 함수의 내용 형태
+        }
+
+        (a, b) => a + b;  // 매개변수 => 함수내용 의 형태
+
+        let sum = (a, b) => a + b;  // 최종 화살표 함수
+
+
+7. 콜백 함수
+   - 다른 함수의 인수로 사용되는 함수
+   - 구현 순서
+     a. html 문서에서 해당 요소를 가져옴.
+        const bttn = document.querySelector("button");
+        // 화면에서 button 요소를 가져옴.
+
+     b. 해당 요소의 이벤트 발생여부를 확인하기 위해서, listener(모니터링) 를
+        달아야 함.
+        어떤 이벤트를 모니터링 할건지, 이벤트가 발생할 경우에 실행할 기능
+
+        // 이벤트명과 실행할 기능을 매개변수로 전달.
+        bttn.addEventListener("click", 콜백 함수 => display());
+
+     c. 이벤트가 발생할 경우에 실행할 기능을 함수로 구현. => 콜백 함수
+        function display(){
+          alert("Clicked!!");
+        }
+
+8. 함수를 다른 함수로 전달하기
+   citizen-2.html, citizen-2.js
+
+9. 함수에서 다른 함수 반환하기
+   함수의 return 예약어 다음에 함수가 있음.
+   citizen-3.html, citizen-3.js 
+
+10. 전개 구문, 나머지 매개변수
+   배열처럼 여러 개의 값을 인수로 넘겨주거나 처리할 때 
+   하나의 덩어리로 처리하려고 할 때 편리함.
+   - 전개 구문
+     인수의 개수에 상관없이 매개변수를 받는 경우
+     ... 을 사용
+   - 나머지 매개변수
+     일부분을 먼저 매개변수로 받고,  => first
+     나머지를 매개변수로 받음.        => ...favs
+
+
