@@ -1,0 +1,32 @@
+1. 콜백 함수 활용 함수
+   1.1 setInterval()
+       일정 시간마다 반복
+       timer1.html, timer1.js
+
+   1.2 clearInterval()
+       반복 실행 멈추기
+        timer2.html, timer2.js
+
+   1.3 setTimeOut()
+       일정 시간 후에 실행
+       timer3.html, timer3.js
+
+
+2. DOM( Document Object Model )
+  - 자바스크립트와 같은 프로그래밍 언어로 웹 문서에 접근하고 제어할 수 
+    있도록 웹 문서를 체계적으로 정리하는 방법.
+  - DOM 에서는 웹 문서를 하나의 객체로 정의하고, 웹 문서를 이루는 
+    모든 요소를 각각의 객체로 정의.
+  - DOM tree, 160페이지, 그림 5-1
+    document - html - head and body - ....
+  - document node
+    - DOM tree 의 최상위 루트 노드임.
+    - Html 문서당 document 객체는 유일함.
+    - DOM 트리의 node 들에 접근하기 위한 진입점 역할.
+    - 전역객체 window 의 document property 에 바인딩이 되어 있음
+
+  2.1 웹 요소에 접근
+    2.1.1 querySelector() , 하나의 요소가 대상
+    2.1.2 querySelectorAll() , 여러 요소가 대상
+    2.1.3 getElement* 함수 , 선택자를 사용한 대상
+
