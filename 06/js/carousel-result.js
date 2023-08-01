@@ -16,7 +16,7 @@ container.style.backgroundImage =
   `url(images/${imgList[0]})`;
 
 // 화살표 : 그림 전환용
-const arrows = document.querySelector(".arrow");
+const arrows = document.querySelectorAll(".arrow");
 
 let idx = 0;
 
