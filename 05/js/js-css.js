@@ -6,6 +6,7 @@ const title = document.querySelector("#title");
 
 //클릭되었을 때, 스타일 적용
 title.onclick = () => {
+  // classlist-1.js 와 비교
   title.style.backgroundColor = "black";
   title.style.color = "white";
 };
