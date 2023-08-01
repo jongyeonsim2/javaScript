@@ -8,6 +8,9 @@ const selectMenu =
 // 알림 기능의 콜백 함수 구현.
 function displaySelect() {
   // 
+  let selectedText = selectMenu.options[selectMenu.selectedIndex].
+                      innerText;
+  alert(`${selectedText} 를 선택했습니다.`);
 }
 
 // 선택 변경 이벤트 발생시 알림 기능 추가.
