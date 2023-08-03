@@ -1,0 +1,72 @@
+1. 자바스크립트 객체
+  1.1 객체의 종류
+   - 내장객체
+     자바스크립트에서 미리 정의해서 사용하는 객체. Array, Math 등
+   - DOM(Document Object Model) 객체
+     document 객체
+   - 웹 브라우저 객체
+     location, history 등
+   - 사용자 정의 객체
+     
+  1.2 사용자 정의 객체
+   - 객체 선언
+     let book1 = {
+        title : "자바스크립트",
+        pages : 700
+     }
+
+     - title, pages 를 자바에서는 멤버변수 했음.
+       자바스크립트에서는 프로퍼티라고 함.
+       그리고, 키(key) 라고 함.
+     - title, pages 에 초기화한 값은 value 라고 함.
+
+     let book2 = {}
+     let book2 = new Object()
+
+
+   - 객체 사용
+     book1.title;    // 프로퍼티로 value를 참조.
+     book1["title"]; // key 로  value를 참조.
+
+   - 프로퍼티 삭제
+     delete book1.pages
+
+   - 프로퍼티 value 삭제
+     book1.title = undefined
+
+   - 함수 선언
+     
+    buy : function() {
+        console.log(this.title);
+    }
+
+    에크마스크립트 2015 부터 function 생략 가능.
+    buy () {
+        console.log(this.title);
+    }
+
+   - this 예약어
+     자바 언어에서 처럼 자기 자신(객체) 를 가리키는 참조 변수.
+
+   - 객체 복사하기
+     - 얕은 복사
+     - 깊은 복사
+
+  1.3 생성자 함수 및 클래스
+
+  1.4 객체의 key 및 value
+     - 객체의 key, value 를 사용시 반복문을 사용하면 사용이 편리함.
+     - Object 객체의 메소드 사용.
+       keys(), values(), entries()
+
+  1.5 프로토타입과 클래스를 이용한 상속 구현
+     - c언어( 절차지향 ) => c++ ( 객체지향 ) => java ( 객체지향 )
+     - c++ : 다중 상속이 됨.
+       java : 다중 상속이 안됨. => interface 이용 다중상속처럼 되도록 함.
+              클래스 작성. => 운영환경에 적용 => 멤버함수가 추가적으로 필요해짐.
+              => 기존 코드 수정 => 테스트 => 운영 반영.
+       javascript ( 객체지향 ) => class 기반으로 상속.
+                                 프로토타입 => 유지보수가 편함.
+                                 프로토타입 => 메모리상에 존재 => 신규 함수 추가.
+                                 물론, 운용환경에 적용하기 위한 테스트는 필요.
+
