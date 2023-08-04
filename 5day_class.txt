@@ -1,0 +1,61 @@
+1. 매개변수 기본값
+  function hello(name, message = "hello") {
+      console.log(`${name}, ${message}`)
+  }
+
+2. 나머지 매개변수
+
+3. 배열 연결하기(전개 구문)
+   - 배열 복사
+     얕은 복사 : 변수로 복사
+     깊은 복사 : 전개 구문
+
+4. 객체의 프로퍼티
+   - 프로퍼티 명(key)에 공백이 있는 경우
+     book.published date = "2023-01" // 에러
+     book["published date"] = "2023-01"  // 사용 가능.
+
+   - 계산된 프로퍼티 이름
+     프로퍼티(key) 자리에 함수를 호출해서 사용 가능
+     book[fn()] 
+
+   - 단축된 프로퍼티 사용
+     함수에서 객체를 생성 후 반환.
+     함수의 매개변수를 객체의 프로퍼티 명(key)로 사용.
+     함수의 매개변수의 값은 프로퍼티 의 값(value)로 사용.
+
+      function makeUser(name, age) {
+        return {
+          name : name, 
+          age : age
+        }
+      }
+
+      function makeUser(name, age) {
+        return {
+          name, 
+          age
+        }
+      }
+
+   - 객체에 Symbol() 사용하기
+     Symbol : 한 번 정의하면 값을 변경할 수 없고 유일한 값을 가짐.
+     객체를 만들면서 일부 정보를 드러내지 않을 경우 사용. => 프라이빗 객체
+     자바의 캡슐화가 가능.
+
+     for, Object.keys(), Object.values(), Object.entries() 확인이 안됨.
+
+   - 전역 Symbol
+     여러 프로그램에서 하나의 객체를 공유해서 사용하는 경우.
+     전역 심볼 레지스터리에 저장되고, Symbol.for(), Symbol.keyFor() 를 이용해서
+     접근.
+
+     let tel3 = Symbol.for("tel3")
+     let phoneNumber3 = Symbol.for("tel3")
+     tel3 === phoneNumber3 //true
+
+
+
+     
+
+
