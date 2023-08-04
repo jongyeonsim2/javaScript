@@ -25,6 +25,8 @@ subjects.forEach(
 console.log(resultSet);
 
 //3. Html 요소를 만들어서 화면 출력
+//   배열의 변형 메소드 중에서 map를 사용 => 
+//          Set 의 모든 요소에 동일한 처리(li tag 적용)를 하도록 함수로 구현.
 const result = document.querySelector("#result");
 
 result.innerHTML = `
