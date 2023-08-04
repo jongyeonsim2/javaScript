@@ -54,8 +54,73 @@
      let phoneNumber3 = Symbol.for("tel3")
      tel3 === phoneNumber3 //true
 
+5. 구조 분해 할당
+   주어진 자료의 구조를 분해해서 변수에 할당하는 기능.
+   => 디스트럭팅(distructing)
+
+   5.1 배열
+      let [fruit1, fruit2, fruit3] = fruit  //배열의 디스트럭팅
+      let [member1, member2] = []       //undifined
+      let [, fruit4,] = fruit           //일부 요소만 분해 및 할당
+      let [fruit5, ...fruit6] = fruit1  //첫 번 요소, 나머지 요소
+      [x, y] = [y, x]                   // 두 변수의 값을 교환
+
+   5.2 객체
+      변수의 이름과 객체의 프로퍼티의 이름이 동일해야 함.
+
+      const member3 = {
+        name3 : "hong",
+        age3 : 30
+      }
+
+      let {name3, age3} = member3   // 정상적으로 디스트럭팅이 됨.
+
+      let {name4, age4} = member3   // 디스트럭팅이 되지 않음.
+                                    // 객체의 프로퍼티명과 변수의 이름이 다름.
+
+      - 변수명을 새로 설정
+        let {name3 : nameVar, age3 } = member3
+
+      - 중첩 객체의 디스트럭팅
+        const student = {
+            name : "kim",
+            score : {
+                history : 80,
+                science : 100
+            },
+            friend : ["hong","lee","park"]
+        }
+
+        let {
+            name,
+            score : {
+                history,
+                science
+            },
+            friend : [f1,f2,f3]
+        } = student
 
 
-     
+6. 배열을 변형하는 메서드
+   6.1 map()
+       각 배열 요소에 똑같은 함수를 실행한 후 그 결과를 새로운 배열로 반환
+
+        let numbers_2 = [1,2,3,4,5]
+        let newNumbers_2 = numbers_2.map(num => num * 2)
+
+        // (num, idx) : 첫 번째 요소는 요소값, 두 번째 요소는 배열의 인덱스
+        let newNumbers_3 = numbers_2.map((num, idx) => idx + (num * 3))
+
+   6.2 filter()
+       특정 조건에 맞는 요소만 골라내는 함수.
+
+       let resultArr = numbers_2.filter(num => num >= 3)
 
 
+   6.3 reduce()
+       배열 원소에 차례대로 함수를 실행해서 하나의 결과 값을 만듬. ( 누산기 기능 )
+
+      let resultVar = numbers_2.reduce((tot, cur) => tot + cur, 0)
+      // (tot, cur), tot는 누산결과변수, cur은 배열의 요소
+      // tot + cur, 0, tot + cur 누산결과변수에 요소값을 더하는 처리,
+      //               0, 누산결과변수의 초기화 값.
