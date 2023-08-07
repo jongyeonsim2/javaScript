@@ -14,3 +14,17 @@ const pizza = new Promise( (resolve, reject) => {
 );
 
 // 2. 구현한 promise 를 사용. : then(), catch() => 소비 코드
+pizza
+.then(result => console.log(result))//피자 주문 성공
+.catch(err => console.log(err))
+.finally(
+  () => console.log("처리 완료")
+);//피자 주문 실패
+
+
+
+// pizza.then(
+//   result => console.log(result), //피자 주문 성공
+//   err => console.log(err) //피자 주문 실패
+// );
+
