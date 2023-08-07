@@ -192,11 +192,11 @@
       - JSON 문자열
       - 배열
    10.4 JSON data 생성 및 객체화
-      - 클라이언트 => 서버로 데이터 전송
+      - 클라이언트 => 서버로 데이터 전송, request
         객체를 JSON data 생성 => 직렬화
         JSON.stringify(객체)
 
-      - 서버 => 클라이언트로 데이터 전송
+      - 서버 => 클라이언트로 데이터 전송, respose
         JSON data 를 객체로 변환 => 파싱(parsing)
         JSON.parse(JSON data)
 
