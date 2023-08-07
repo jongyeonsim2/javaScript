@@ -48,8 +48,23 @@ const order = new Promise(
 
 // promise 객체 사용.
 // 성공(orderSuccess)과 실패(orderCancle)에 따른 콜백 함수 정의.
+function orderSuccess(result) {
+      //요구사항 4번
+      //커피 준비 완료까지 3초 소요.  =>  promise 에서 구현
+      //주문 접수 내용을 비활성화
+      //커피 준비 완료 내용 활성화
 
+      document.querySelector(".end").innerText = 
+        `${result} 준비 완료`;
+      
+      document.querySelector(".end").classList.add("active");
+      document.querySelector(".start").classList.add("done");
+}
+
+function orderCancle(err) {
+  document.querySelector(".start").innerText = err;
+}
 
 order
-.then()
-.catch();
+.then(orderSuccess)
+.catch(orderCancle);
