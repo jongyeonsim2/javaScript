@@ -1,0 +1,55 @@
+1. 서버와의 통신
+   - 동기 통신 :
+     a. request 를 서버로 전송. 
+       ( client 는 respose 를 받기까지 대기. ) 
+       => 브라우저가 대기. => 동기
+     b. 서버에서는 수신된 request 를 분석 후 처리.
+     c. 서버에서는 처리 결과를 client에게 response 함.
+
+   - 비동기 통신 : 일반적으로 사용. AJAX( 비동기 통신 방법 )
+     a. request 를 서버로 전송. 
+       ( client 는 respose 를 받기까지 대기하지 않음. )
+        => 브라우저는 자기 할일을 하고, 
+           response 가 오면 처리하면 됨.  => 비동기
+     b. 서버에서는 수신된 request 를 분석 후 처리.
+     c. 서버에서는 처리 결과를 client에게 response 함.
+
+     AJAX( 비동기 통신 방법 )
+     A : 비동기
+     J : JavaScript
+     A : And
+     X : XML( JSON, HTML 등 사용 가능. )
+
+     페이지 전체를 다시 가져오지 않고도 사용자의 이벤트에 따라서
+     언제든지 웹 페이지의 일부만 최신 내용으로 표시할 수 있는
+     비동기 기법임.
+
+   1.1 XMLHttpRequest 
+     - XML 및 JSON을 비롯한 여러 유형의 데이터를 HTTP 프로토콜을 사용해서
+       서버와 통신을 하기 위해 요청을 한는데 사용하는 객체.
+
+     - 사용순서( 단계 )
+       a. 객체 생성
+          let xhr = new XMLHttpRequest();
+
+       b. 요청 초기화
+          open() 메소드
+          xhr.open("GET", "student.json");
+
+       c. 초기화 한 요청을 서버로 전송.
+          send() 메소드
+          xhr.send();
+
+       d. 서버에서 전송한 XMLHttpRequest 객체가 반환됨. 
+          xhr 이라고 참조 변수를 사용.
+
+       e. xhr 의 property의 value를 확인.
+          hxr.readyState : 서버에서 전송한 데이터 ( 4 )
+          xhr.status : HTTP 상태 코드( 200번, OK )
+
+       f. hxr.responseText 의 value 를 parsing.
+          서번에서 전송된 JSON 데이터를 객체 로 변환.
+          let student = JSON.parse(xhr.responseText);
+
+
+
