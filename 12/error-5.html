@@ -9,11 +9,25 @@
 <body>
   <h1>예외 처리했을 때</h1>
 
+  <div id="result"></div>
+
   <script>
     let json = '{"grade": 3, "age": 25}';
   
     try {
       let user = JSON.parse(json);
+      // user.name 는 undefined
+      // !undefined 조건식에 일부로 사용된 undefined 는 false 임.
+      // !undefined => !false => true.
+
+      // undefined 로 console 에 출력이 됨.
+      console.log(`학생명 : ${user.name}`);
+
+      document.getElementById("result").innerHTML = 
+      `
+      학생명 : ${user.name}
+      `;
+
       if (!user.name) {
         throw "사용자 이름이 없습니다.";
       }

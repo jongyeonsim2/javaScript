@@ -12,10 +12,17 @@
   <script>
     try {
       console.log("시작");
-      add;
+      add; // 예외가 발생.
+      // 예외가 발생 후 아래의 코드는 실행되지 않음. 
       console.log("실행 중..."); 
     } catch(err) {
-      console.log(`오류 발생 : ${err}`);
+      // 예외가 발생하고, 예외 정보를
+      // 일반 메세지 출력 함수를 사용해서 출력함.
+      // console.error();
+      //console.log(`오류 발생 : ${err}`);
+      console.error(`오류 발생 : ${err}`);
+      console.error(`오류 발생(이름) : ${err.name}`);
+      console.error(`오류 발생(메세지) : ${err.message}`);
     } finally {
       console.log("끝");
     }    
