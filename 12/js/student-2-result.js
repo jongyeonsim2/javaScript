@@ -29,16 +29,29 @@ function writeHTML(studentsObj) {
 
   let output = "";
 
-  for (let sutdent of studentsObj) {
+  // for (let sutdent of studentsObj) {
+  //   output += `
+  //     <h2>${sutdent.name}</h2>
+  //     <ul>
+  //       <li>전공명 : ${sutdent.major}</li>
+  //       <li>학년 : ${sutdent.grade}</li>
+  //     </ul>
+  //     <hr>
+  //   `;
+  // }
+
+  studentsObj.forEach(function (student) {
     output += `
-      <h2>${sutdent.name}</h2>
+      <h2>${student.name}</h2>
       <ul>
-        <li>전공명 : ${sutdent.major}</li>
-        <li>학년 : ${sutdent.grade}</li>
+        <li>전공명 : ${student.major}</li>
+        <li>학년 : ${student.grade}</li>
       </ul>
       <hr>
     `;
-  }
+  });
+
+
 
   document.getElementById("result").innerHTML = output;
 }
