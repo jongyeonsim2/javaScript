@@ -82,3 +82,15 @@ pizza().then( (result) => step1(result) )//step1 처리 후, promise 객체가 �
           console.log("피자 준비 완료");
         }
       );
+
+
+// pizza()
+//         .then(step1)
+//         .then(step2)
+//         .then(step3)
+//         .then(console.log)
+//         .then(
+//           () => {
+//             console.log("피자 준비 완료");
+//           }
+//         );
