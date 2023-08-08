@@ -53,7 +53,7 @@ const step2 = (msg) => {
   );
 };
 
-const step3 = () => {
+const step3 = (msg) => {
   console.log(msg);
   return new Promise(
     (resolve, reject) => {
@@ -74,4 +74,5 @@ const step3 = () => {
 //   => 비동기 프로그래밍
 
 pizza().then( (result) => step1(result) )//step1 처리 후, promise 객체가 반환되도록 해야함.
-      .then( (result) => step2(result)); //step2
+      .then( (result) => step2(result)) //step2
+      .then( (result) => step3(result) );
