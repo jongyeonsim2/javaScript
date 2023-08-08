@@ -36,4 +36,4 @@ fetch("student-2.json") // promise 가 반환됨.
         document.querySelector("#result").innerHTML = output;
       }
    )
-   .catch(error => console.log(error));
+   .catch(error => console.log(error)); // 서버와 통신을 함으로 반드시 catch() 해야 함.
