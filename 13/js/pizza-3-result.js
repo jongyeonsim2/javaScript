@@ -73,5 +73,5 @@ const step3 = () => {
 //   메소드 체이닝 으로 구현하는 이유는 조리단계별로 진행시키도록 하기 위함.
 //   => 비동기 프로그래밍
 
-pizza().then( (result) => step1(result) );//step1 처리 후, promise 객체가 반환되도록 해야함.
-//   then()//step2
+pizza().then( (result) => step1(result) )//step1 처리 후, promise 객체가 반환되도록 해야함.
+      .then( (result) => step2(result)); //step2
