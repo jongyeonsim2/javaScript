@@ -75,4 +75,10 @@ const step3 = (msg) => {
 
 pizza().then( (result) => step1(result) )//step1 처리 후, promise 객체가 반환되도록 해야함.
       .then( (result) => step2(result)) //step2
-      .then( (result) => step3(result) );
+      .then( (result) => step3(result) ) //step3
+      .then( (result) => console.log(result) )
+      .then(
+        () => {
+          console.log("피자 준비 완료");
+        }
+      );
