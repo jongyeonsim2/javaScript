@@ -22,9 +22,8 @@ const step1 = (msg) => {
   console.log(msg);
 };
 
-
 // Promise 객체 사용
-// resolve 와 step1 을 연결.
+// resolve(then) 와 step1 을 연결.
 /**
  * pizza(). => promise
  * promise.then()
