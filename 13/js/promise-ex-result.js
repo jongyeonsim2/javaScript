@@ -65,6 +65,15 @@ function orderCancle(err) {
   document.querySelector(".start").innerText = err;
 }
 
+/**
+ * promise 객체를 사용하는 쪽.
+ *   - then, catch() 메소드를 구현.
+ *   - 기능이 크지면, 함수로 뽑아냄. => 콜백 함수.
+ * 
+ * order :  promise 객체 참조변수.( 쉽게 보면, promise 객체 )
+ *    
+ * 메소드 체이닝 : order.then().catch()
+ */
 order
-.then(orderSuccess)
-.catch(orderCancle);
+.then(orderSuccess) // promise.then() => promise 객체
+.catch(orderCancle);// promise.catch() => catch를 사용하고 처리가 끝남.
