@@ -124,6 +124,28 @@ function insertCoin(coin) {
 /***
  * =================== 음료수 구입 Main 함수 => Handler 함수와 함께 구현. => 구조화 적용.
  */
+function buyDrink(selectedDrinkId) {
+
+  // 상품 객체 배열에서 클릭한 버튼의 상품 정보를 검색
+  // 배열 filter()
+  let drink = drinks.filter(
+                             (d) => parseInt(d.drinkId) === parseInt(selectedDrinkId)
+                          )[0];
+
+  // [ 예외 처리 ] - 재고수량, 금액 등 체크
+  let errorFlag = exceptionHandleForBuyDrink(drink);
+
+  // 예외가 발생하지 않으면, 비즈니스 로직 처리 - 잔액 및 재고 변경
+  if (!errorFlag) {
+
+  }
+
+  // [ 화면 처리 ]
+  uiHandleForBuyDrink();
+
+}
+
+
 
 
 /***
@@ -140,6 +162,38 @@ function exceptionHandleInsertCoin() {
 /***
  * =================== 음료수 구입 관련 Handler 함수 ( UI, Exception ) => 구현되어 있음.
  */
+
+/***
+ * UI 처리 함수
+ */
+function uiHandleForBuyDrink() {
+
+}
+
+/***
+ * Exception 처리 함수
+ */
+function exceptionHandleForBuyDrink() {
+  try {
+
+  } catch (err) {
+
+  }
+
+}
+
+
+/***
+ * ============================== 공통 기능 관련 함수 ==============================
+ */
+function printBuyHistory(msg) {
+  let printBuyHistory = document.getElementById("divBuyHistory");
+
+  printBuyHistory.insertAdjacentHTML("beforeend", msg);
+
+  printBuyHistory.scrollTop = printBuyHistory.scrollHeight;
+}
+
 
 
 
