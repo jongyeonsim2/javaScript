@@ -48,7 +48,7 @@ const drinks = [
 let totalVendingBalance = 1000;
 
 // 내 지갑 잔액
-let totalMyBalance = 1000;
+let totalMyBalance = 10000;
 
 // 음료수를 구입하기 위해 투입한 잔액
 let totalInsertBalance = 0;
@@ -63,6 +63,21 @@ function insertCoin(coin) {
 
   // 투입 금액이 내 지갑의 잔액보다 작거나 큰지 체크
   if (coin <= totalMyBalance) {
+    // [비즈니스 로직] 지갑에서 투입하려는 금액만큼 각 잔액을 재 계산
+    totalInsertBalance += coin;   // 투입 금액
+    totalMyBalance -= coin;       // 내 지갑 잔액
+    totalVendingBalance += coin;  // 자판기 잔액
+
+    // [화면 - 음료수 버튼] 
+    // 음료수 객체 배열에서 구입할 수 있는 음료수 버튼의 바탕색을 노란색으로 변경.
+    for (let drink of drinks) {
+      if (drink.price <= totalInsertBalance) {
+        // css 파일에서 drink, active 두 가지를 적용.
+        document.getElementById("btnDrink" + drink.drinkId).className =
+          "drinkButton activeButton";
+      }
+    } 
+
     // 화면과 관련된 부분 지정
     // 1. 자판기 잔액, 투입 금액 잔액, 내 지갑 잔액 지정
     // 2. 자판기 잔액, 투입 금액 잔액, 내 지갑 잔액 출력
