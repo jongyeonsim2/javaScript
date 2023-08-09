@@ -1,0 +1,16 @@
+/* 100원, 500원, 1000원 투입 버튼 */
+.coinButton {
+  padding: 5px;
+  margin-right: 5px;
+}
+
+/* 음료수 버튼 */
+.drinkButton {
+  padding: 5px;
+  margin-right: 5px;
+}
+
+/* 음료수 버튼 바탕색 */
+.activeButton {
+  background-color: yellow;
+}
