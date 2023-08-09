@@ -83,9 +83,21 @@ function insertCoin(coin) {
     document.getElementById("totalMyBalance").value = totalMyBalance;
     document.getElementById("totalVendingBalance").value = totalVendingBalance;
 
-    // 화면과 관련된 부분 지정
-    // 1. 자판기 잔액, 투입 금액 잔액, 내 지갑 잔액 지정
-    // 2. 자판기 잔액, 투입 금액 잔액, 내 지갑 잔액 출력
+    // [화면 - 투입 금액 내역]
+    printBuyHistory.insertAdjacentHTML(
+      "beforeend",// 부모 요소안에서 자식 요소(P tag)들 중에서 마지막 자식 다음의 위치.
+      `<p>${coin} 원이 투입 되었습니다.</p>`
+    );
+
+    printBuyHistory.insertAdjacentHTML(
+      "beforeend",// 부모 요소안에서 자식 요소(P tag)들 중에서 마지막 자식 다음의 위치.
+      `<p>총 투입 금액은 ${totalInsertBalance} 원 입니다.</p>`
+    );
+
+    printBuyHistory.insertAdjacentHTML(
+      "beforeend",// 부모 요소안에서 자식 요소(P tag)들 중에서 마지막 자식 다음의 위치.
+      `<p>현재 지갑에는 ${totalMyBalance} 원이 남았습니다.</p>`
+    );
 
   } else {
     // 사용자 예외 처리
