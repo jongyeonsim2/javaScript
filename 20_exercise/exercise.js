@@ -137,11 +137,20 @@ function buyDrink(selectedDrinkId) {
 
   // 예외가 발생하지 않으면, 비즈니스 로직 처리 - 잔액 및 재고 변경
   if (!errorFlag) {
+    // [비즈니스 로직] 거스름 금액 
+    let changes = totalInsertBalance - drink.price;
 
+    // 잔액 및 재고 처리
+    totalMyBalance += changes;
+    drink.stock -= 1;
+    totalInsertBalance = 0;
+    totalVendingBalance -= changes;
+
+    // [ 화면 처리 ]
+    uiHandleForBuyDrink(selectedDrinkId, drink, changes);
   }
 
-  // [ 화면 처리 ]
-  uiHandleForBuyDrink();
+  
 
 }
 
@@ -166,8 +175,22 @@ function exceptionHandleInsertCoin() {
 /***
  * UI 처리 함수
  */
-function uiHandleForBuyDrink() {
+function uiHandleForBuyDrink(selectedDrinkId, drink, changes) {
+  // 변경된 잔액에 대해서 화면에 반영
+  document.getElementById("totalInsertBalance").value = totalInsertBalance;
+  document.getElementById("totalMyBalance").value = totalMyBalance;
+  document.getElementById("totalVendingBalance").value = totalVendingBalance;
 
+  document.getElementById("drinkStock" + selectedDrinkId).innerText = drink.stock;
+
+  // 주문 내역 출력
+  printBuyHistory(`<p> ${drink.drinkName} 음료가 나왔습니다. 잔돈은 ${changes} 원 입니다.</p>`);
+  printBuyHistory(`<p>현재 지갑에는 총 ${totalMyBalance} 원 있습니다.</p>`);
+
+  // 화면 버튼 갱신
+  for (let drink of drinks) {
+    document.getElementById("btnDrink" + drink.drinkId).className = "drinkButton";
+  }
 }
 
 /***
