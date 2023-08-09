@@ -78,6 +78,11 @@ function insertCoin(coin) {
       }
     } 
 
+    // [화면 - 자판기, 투입 금액, 내 지갑 잔액 input text의 value 수정]
+    document.getElementById("totalInsertBalance").value = totalInsertBalance;
+    document.getElementById("totalMyBalance").value = totalMyBalance;
+    document.getElementById("totalVendingBalance").value = totalVendingBalance;
+
     // 화면과 관련된 부분 지정
     // 1. 자판기 잔액, 투입 금액 잔액, 내 지갑 잔액 지정
     // 2. 자판기 잔액, 투입 금액 잔액, 내 지갑 잔액 출력
