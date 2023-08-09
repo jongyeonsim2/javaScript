@@ -36,7 +36,7 @@ const drinks = [
     drinkId : "4",
     drinkName : "녹차",
     price : 900,
-    stock : 5,
+    stock : 0,
   },
 ];
 
@@ -173,10 +173,35 @@ function uiHandleForBuyDrink() {
 /***
  * Exception 처리 함수
  */
-function exceptionHandleForBuyDrink() {
+function exceptionHandleForBuyDrink(drink) {
+
   try {
+    // 재고가 없는 경우
+    if (drink.stock <= 0) {
+      throw new Error(`<p>선택하신 음료 ${drink.drinkName} 는 재고가 없습니다.</p>`);
+    }
+
+    // 자판기 투입 금액보다 비싼 음료수를 구입하려는 경우
+    if (totalInsertBalance < drink.price) {
+      throw new Error(`<p>투입하신 금액은 총 ${totalInsertBalance} 원 인데, 
+                          음료 가격은 ${drink.price} 원 이어서 구매할 수 없습니다.</p>`
+      );
+    }
+
+    // 자판기가 거스름돈을 줄 수 없는 경우
+    let changes = totalInsertBalance - drink.price;
+
+    if (totalVendingBalance < changes) {
+      throw new Error(`<p>음료 자판기에 잔돈이 없어서 
+                          ${drink.drinkName} 음료를 구매할 수 없습니다.</p>`);
+    }
+
+    return false;
 
   } catch (err) {
+    printBuyHistory(err.message);
+
+    return true;
 
   }
 
@@ -225,7 +250,7 @@ function renderDrinkButtons() {
   const buttonArr = [];
   for (const drink of drinks) {
     buttonArr.push(
-      `<button onclick=";" id="btnDrink${drink.drinkId}" class="drinkButton">
+      `<button onclick="buyDrink(${drink.drinkId});" id="btnDrink${drink.drinkId}" class="drinkButton">
       ${drink.drinkName}
       (${drink.price}원, 재고수
           <span id="drinkStock${drink.drinkId}">${drink.stock}</span>)
