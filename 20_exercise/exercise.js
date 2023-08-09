@@ -32,6 +32,12 @@ const drinks = [
     price : 700,
     stock : 5,
   },
+  {
+    drinkId : "4",
+    drinkName : "녹차",
+    price : 900,
+    stock : 5,
+  },
 ];
 
 
@@ -42,7 +48,7 @@ const drinks = [
 let totalVendingBalance = 1000;
 
 // 내 지갑 잔액
-let totalMyBalance = 10000;
+let totalMyBalance = 1000;
 
 // 음료수를 구입하기 위해 투입한 잔액
 let totalInsertBalance = 0;
@@ -51,7 +57,36 @@ let totalInsertBalance = 0;
 /***
  * =================== 동전 투입 Main 함수 => 하나의 함수로 구현 => 구조화 적용하지 않음.
  */
+function insertCoin(coin) {
+  // 주문 내역 영역 지정
+  let printBuyHistory = document.getElementById("divBuyHistory");
 
+  // 투입 금액이 내 지갑의 잔액보다 작거나 큰지 체크
+  if (coin <= totalMyBalance) {
+    // 화면과 관련된 부분 지정
+    // 1. 자판기 잔액, 투입 금액 잔액, 내 지갑 잔액 지정
+    // 2. 자판기 잔액, 투입 금액 잔액, 내 지갑 잔액 출력
+
+  } else {
+    // 사용자 예외 처리
+    // 내 지갑 잔액, 투입하려고 했던 금액 을 출력
+    printBuyHistory.insertAdjacentHTML(
+      "beforeend",// 부모 요소안에서 자식 요소(P tag)들 중에서 마지막 자식 다음의 위치.
+      `<p>내 지값에 남아 있는 돈은 ${totalMyBalance} 원 입니다.</p>`
+    );
+
+    printBuyHistory.insertAdjacentHTML(
+      "beforeend",// 부모 요소안에서 자식 요소(P tag)들 중에서 마지막 자식 다음의 위치.
+      `<p>${coin} 원 을 투입할 수 없습니다.</p>`
+    );
+
+  }
+
+  // 주문 내역 영역의 스크롤 바를 
+  // 마지막에 추가된 메세지의 위치로 이동.
+  printBuyHistory.scrollTop = printBuyHistory.scrollHeight;
+
+}
 
 
 /***
@@ -62,7 +97,13 @@ let totalInsertBalance = 0;
 /***
  * =================== 동전 투입 관련 Handler 함수 ( UI, Exception ) => 구현 하지 않음.
  */
+function uiHandleForInsertCoin() {
 
+}
+
+function exceptionHandleInsertCoin() {
+
+}
 
 /***
  * =================== 음료수 구입 관련 Handler 함수 ( UI, Exception ) => 구현되어 있음.
@@ -82,7 +123,7 @@ function renderCoinButtons() {
   const buttonArr = [];
   for (const coin of conins) {
     buttonArr.push(
-      `<button onclick=";" class="coinButton">${coin} 원 투입</button>`
+      `<button onclick="insertCoin(${coin});" class="coinButton">${coin} 원 투입</button>`
     );
   }
 
